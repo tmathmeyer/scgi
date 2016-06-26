@@ -24,6 +24,8 @@ int main(int argc, char **argv) {
     scgi_begin_body();
 
     printf("<html><body>\n");
-    print_dirs(".");
+    for(int i=1; i<argc; i++) {    
+        print_dirs(argv[i]);
+    }
     printf("</body></html>");
 }
