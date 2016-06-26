@@ -1,0 +1,4 @@
+127.0.0.1       /usr/bad/apple
+localhost:9090  /home/ted/git/Misc_Projects/scgi/example/HELLO_WORLD
+localhost:9091  /home/ted/git/Misc_Projects/scgi/example/HELLO_WORLD
+DEFAULT         /home/ted/git/Misc_Projects/scgi/example/build/ls2files

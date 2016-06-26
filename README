@@ -1,0 +1,25 @@
+SCGI (is it Slow or Stupid, you decide!)
+========================================
+a shitty mock CGI host, because installing the other ones took too much effort.
+also kindof a reverse proxy, but not really.
+
+INSTALLATION (linux supported only)
+===================================
+run make
+copy build/scgi to your path somewhere
+
+USAGE
+=====
+scgi -p [port] -c [config/file/path]
+
+CONFIG
+======
+the config file consists of lines that match:
+[host][whitepsace][binary][newline]
+such as (yes I know there are mixed tabs and spaces here)
+127.0.0.1                  /usr/bin/sneaky.sh
+when a request comes in, if the host that the request used matches
+one of the hosts in the config file, the binary provided will be
+executed with the data from the request in environment variables.
+you can also use DEFAULT in place of a host, and any unmatched traffic
+will have the corresponding binary executed.
