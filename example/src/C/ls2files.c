@@ -38,6 +38,11 @@ int sbd(const struct dirent **a, const struct dirent **b) {
 int dir_in_order(char *dir) {
     char *old = getcwd(NULL, 0);
     chdir(dir);
+    char *huh = getcwd(NULL, 0);
+    puts("<h1>");
+    puts(huh);
+    puts("</h1><br />");
+    free(huh);
     struct dirent **entry_list;
     int count;
     int i;
@@ -51,8 +56,10 @@ int dir_in_order(char *dir) {
     for (i = 0; i < count; i++) {
         struct dirent *entry;
         entry = entry_list[i];
-        printf("<a href='http://files.tmathmeyer.me/%s'>", entry->d_name);
-        printf("%s</a><br/>\n", entry->d_name);
+        if (entry->d_name[0] != '.') {
+            printf("<a href='http://files.tmathmeyer.me/%s'>", entry->d_name);
+            printf("%s</a><br/>\n", entry->d_name);
+        }
         free(entry);
     }
     free(entry_list);
